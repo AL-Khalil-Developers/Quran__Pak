@@ -13,9 +13,9 @@
 
   <ImageView
       android:id="@+id/logo"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:src="@drawable/icon"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:src="@drawable/debug_icon"
       android:layout_marginTop="8dp"
       android:layout_marginBottom="8dp"
       android:layout_gravity="center_horizontal"

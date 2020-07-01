@@ -46,6 +46,8 @@ import com.alkhalildevelopers.apps.quranepak.util.AudioUtils
 import com.alkhalildevelopers.apps.quranepak.util.QuranSettings
 import com.alkhalildevelopers.apps.quranepak.util.QuranUtils
 import com.alkhalildevelopers.apps.quranepak.widgets.SlidingTabLayout
+import com.alkhalildevelopers.quranepak.personal.ChannelPageActivity
+import com.alkhalildevelopers.quranepak.personal.WebsitePageActivity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -204,12 +206,18 @@ class QuranActivity : QuranActionBarActivity(),
       R.id.jump -> {
         gotoPageDialog()
       }
+      R.id.website -> {
+        startActivity(Intent(this,WebsitePageActivity::class.java))
+      }
+      R.id.channel -> {
+        startActivity(Intent(this,ChannelPageActivity::class.java))
+      }
       R.id.other_apps -> {
         Answers.getInstance().logCustom(CustomEvent("menuOtherApps"))
         val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("market://search?q=pub:alkhalildevelopers.com")
+        intent.data = Uri.parse("market://search?q=pub:"+ resources.getString(R.string.playConsoleName));
         if (packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) == null) {
-          intent.data = Uri.parse("http://play.google.com/store/search?q=pub:alkhalildevelopers.com")
+          intent.data = Uri.parse("http://play.google.com/store/search?q=pub:"+ resources.getString(R.string.playConsoleName))
         }
         startActivity(intent)
       }

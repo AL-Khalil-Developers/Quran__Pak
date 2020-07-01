@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'io.fabric'
+//apply plugin: 'io.fabric'
 apply plugin: 'net.ltgt.errorprone'
 apply plugin: 'kotlin-kapt'
 
@@ -46,9 +46,6 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.cfg'
       signingConfig signingConfigs.release
       versionNameSuffix "-beta"
-      if (project.hasProperty('disableCrashlytics')) {
-        ext.enableCrashlytics = false
-      }
       matchingFallbacks = ['debug']
     }
 
@@ -63,9 +60,6 @@ android {
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.cfg'
       signingConfig signingConfigs.release
-      if (project.hasProperty('disableCrashlytics')) {
-        ext.enableCrashlytics = false
-      }
     }
   }
 
@@ -150,6 +144,7 @@ dependencies {
   // rx
   implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
   implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
   // dagger
   kapt deps.dagger.apt

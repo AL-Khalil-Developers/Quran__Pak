@@ -1,173 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.alkhalildevelopers.apps.quranepak"
-          android:installLocation="auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.alkhalildevelopers.apps.quranepak"
+    android:installLocation="auto">
 
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-sdk tools:overrideLibrary="timber.log" />
 
-  <!-- foreground services need this when targeting Android 9+ (Api 28+) -->
-  <uses-permission-sdk-23 android:name="android.permission.FOREGROUND_SERVICE"/>
-
-  <!-- support chromebooks without touch screen -->
-  <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-
-  <uses-sdk tools:overrideLibrary="timber.log"/>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- foreground services need this when targeting Android 9+ (Api 28+) -->
+  <uses-permission-sdk-23 android:name="android.permission.FOREGROUND_SERVICE" /> <!-- support chromebooks without touch screen -->
+  <uses-feature
+      android:name="android.hardware.touchscreen"
+      android:required="false" />
 
   <application
-      android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher_round"
-      android:label="@string/app_name"
-      android:name="com.alkhalildevelopers.apps.quranepak.QuranApplication"
+      android:name=".QuranApplication"
       android:allowBackup="true"
       android:fullBackupContent="@xml/backup"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
       android:networkSecurityConfig="@xml/network_security_config"
+      android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/Quran">
+    <activity android:name="com.alkhalildevelopers.quranepak.personal.ChannelPageActivity"></activity>
+    <activity android:name="com.alkhalildevelopers.quranepak.personal.WebsitePageActivity" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.ui.SheikhAudioManagerActivity"
-        android:theme="@style/Quran"
-        ></activity>
+        android:name=".ui.SheikhAudioManagerActivity"
+        android:theme="@style/Quran" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.QuranDataActivity"
-        android:label="@string/app_name"
+        android:name=".QuranDataActivity"
         android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.NoActionBar">
       <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
-      <meta-data android:name="android.app.shortcuts"
-                 android:resource="@xml/shortcuts" />
+
+      <meta-data
+          android:name="android.app.shortcuts"
+          android:resource="@xml/shortcuts" />
     </activity>
-
-    <activity android:name="com.alkhalildevelopers.apps.quranepak.ShortcutsActivity"
-              android:exported="true" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.ui.QuranActivity"
-        android:theme="@style/QuranToolBar"/>
+        android:name=".ShortcutsActivity"
+        android:exported="true" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.AboutUsActivity"
-        android:theme="@style/QuranToolBar"/>
-    <activity android:name="com.alkhalildevelopers.apps.quranepak.HelpActivity"/>
+        android:name=".ui.QuranActivity"
+        android:theme="@style/QuranToolBar" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.ui.PagerActivity"
+        android:name=".AboutUsActivity"
+        android:theme="@style/QuranToolBar" />
+    <activity android:name=".HelpActivity" />
+    <activity
+        android:name=".ui.PagerActivity"
         android:launchMode="singleTop"
-        android:theme="@style/QuranToolBar.Overlay"/>
+        android:theme="@style/QuranToolBar.Overlay" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.ui.TranslationManagerActivity"
-        android:configChanges="keyboardHidden|orientation|screenSize"/>
+        android:name=".ui.TranslationManagerActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.QuranPreferenceActivity"
-        android:theme="@style/QuranToolBar"
-        android:configChanges="keyboardHidden|orientation|screenSize"/>
+        android:name=".QuranPreferenceActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:theme="@style/QuranToolBar" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.QuranAdvancedPreferenceActivity"
-        android:theme="@style/QuranToolBar"
-        android:configChanges="keyboardHidden|orientation|screenSize"/>
-
+        android:name=".QuranAdvancedPreferenceActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:theme="@style/QuranToolBar" />
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.SearchActivity"
+        android:name=".SearchActivity"
         android:launchMode="singleTop">
       <intent-filter>
-        <action android:name="android.intent.action.SEARCH"/>
+        <action android:name="android.intent.action.SEARCH" />
       </intent-filter>
+
       <meta-data
           android:name="android.app.searchable"
-          android:resource="@xml/searchable"/>
+          android:resource="@xml/searchable" />
     </activity>
-    <activity android:name="com.alkhalildevelopers.apps.quranepak.QuranForwarderActivity">
+    <activity android:name=".QuranForwarderActivity">
       <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-        <data android:scheme="quran"/>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+
+        <data android:scheme="quran" />
       </intent-filter>
     </activity>
     <activity
-        android:name="com.alkhalildevelopers.apps.quranepak.ui.AudioManagerActivity"
-        android:theme="@style/Quran"/>
-
-    <!-- declare the default searchable Activity for the whole app -->
+        android:name=".ui.AudioManagerActivity"
+        android:theme="@style/Quran" /> <!-- declare the default searchable Activity for the whole app -->
     <meta-data
         android:name="android.app.default_searchable"
-        android:value=".SearchActivity"/>
-    <!-- provides search suggestions for verses. -->
+        android:value=".SearchActivity" /> <!-- provides search suggestions for verses. -->
     <provider
-        android:name="com.alkhalildevelopers.apps.quranepak.data.QuranDataProvider"
-        android:exported="false"
-        android:authorities="@string/authority"/>
-
+        android:name=".data.QuranDataProvider"
+        android:authorities="@string/authority"
+        android:exported="false" />
     <provider
         android:name="androidx.core.content.FileProvider"
         android:authorities="@string/file_authority"
-        android:grantUriPermissions="true"
-        android:exported="false">
+        android:exported="false"
+        android:grantUriPermissions="true">
       <meta-data
           android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/file_paths"/>
+          android:resource="@xml/file_paths" />
     </provider>
 
     <receiver android:name="androidx.media.session.MediaButtonReceiver">
       <intent-filter>
-        <action android:name="android.intent.action.MEDIA_BUTTON"/>
+        <action android:name="android.intent.action.MEDIA_BUTTON" />
       </intent-filter>
     </receiver>
 
-    <activity android:name="com.alkhalildevelopers.apps.quranepak.QuranImportActivity">
+    <activity android:name=".QuranImportActivity">
       <intent-filter>
-        <action android:name="android.intent.action.SEND"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-        <data android:mimeType="application/json"/>
+        <action android:name="android.intent.action.SEND" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+
+        <data android:mimeType="application/json" />
       </intent-filter>
       <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
+        <action android:name="android.intent.action.VIEW" />
 
-        <category android:name="android.intent.category.DEFAULT"/>
-        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
 
         <data
+            android:host="*"
             android:mimeType="*/*"
-            android:scheme="file"
             android:pathPattern=".*\\.backup"
-            android:host="*"/>
+            android:scheme="file" />
         <data
+            android:host="*"
             android:mimeType="*/*"
-            android:scheme="file"
             android:pathPattern=".*\\..*\\.backup"
-            android:host="*"/>
+            android:scheme="file" />
         <data
+            android:host="*"
             android:mimeType="*/*"
-            android:scheme="file"
             android:pathPattern=".*\\..*\\..*\\.backup"
-            android:host="*"/>
+            android:scheme="file" />
         <data
+            android:host="*"
             android:mimeType="*/*"
-            android:scheme="file"
             android:pathPattern=".*\\..*\\..*\\..*\\.backup"
-            android:host="*"/>
+            android:scheme="file" />
       </intent-filter>
     </activity>
-    <activity android:name="com.alkhalildevelopers.apps.quranepak.pageselect.PageSelectActivity"
-        android:theme="@style/Theme.AppCompat.NoActionBar"/>
+    <activity
+        android:name=".pageselect.PageSelectActivity"
+        android:theme="@style/Theme.AppCompat.NoActionBar" />
 
     <service
-        android:enabled="true"
-        android:name="com.alkhalildevelopers.apps.quranepak.service.QuranDownloadService"/>
+        android:name=".service.QuranDownloadService"
+        android:enabled="true" />
     <service
-        android:exported="false"
-        android:name="com.alkhalildevelopers.apps.quranepak.service.AudioService">
+        android:name=".service.AudioService"
+        android:exported="false">
       <intent-filter>
-        <action android:name="android.intent.action.MEDIA_BUTTON"/>
+        <action android:name="android.intent.action.MEDIA_BUTTON" />
       </intent-filter>
-    </service>
-
-    <!-- override WorkManager initialization -->
+    </service> <!-- override WorkManager initialization -->
     <provider
         android:name="androidx.work.impl.WorkManagerInitializer"
         android:authorities="${applicationId}.workmanager-init"
         tools:node="remove" />
   </application>
-</manifest> 
+
+</manifest>
