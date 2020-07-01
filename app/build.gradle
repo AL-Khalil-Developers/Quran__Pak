@@ -17,10 +17,11 @@ android {
   defaultConfig {
     minSdkVersion deps.android.build.minSdkVersion
     targetSdkVersion deps.android.build.targetSdkVersion
-    versionCode 3010
-    versionName "3.0.1"
+    versionCode 1
+    versionName '1.0'
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     multiDexEnabled true
+    applicationId 'com.alkhalildevelopers.quranepak'
   }
 
   signingConfigs {
@@ -35,7 +36,7 @@ android {
   flavorDimensions "pageType"
   productFlavors {
     madani {
-      applicationId "com.quran.labs.androidquran"
+      applicationId "com.alkhalildevelopers.quranepak"
     }
   }
 
@@ -164,7 +165,6 @@ dependencies {
   kapt("com.squareup.moshi:moshi-kotlin-codegen:${moshiVersion}")
 
   implementation 'com.jakewharton.timber:timber:4.7.1'
-  debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
   testImplementation 'junit:junit:4.13'
   testImplementation 'com.google.truth:truth:1.0.1'
   testImplementation "org.mockito:mockito-core:3.3.3"
