@@ -207,7 +207,7 @@
     </Preference>
   </PreferenceCategory>
 
-  <PreferenceCategory
+  <!--<PreferenceCategory
       android:title="@string/about_others"
       app:iconSpaceReserved="false">
     <Preference
@@ -218,5 +218,5 @@
           android:action="android.intent.action.VIEW"
           android:data="@string/about_contributors_url"/>
     </Preference>
-  </PreferenceCategory>
+  </PreferenceCategory>-->
 </PreferenceScreen>
