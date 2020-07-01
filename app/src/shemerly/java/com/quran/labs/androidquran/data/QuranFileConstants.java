@@ -1,9 +1,9 @@
-package com.quran.labs.androidquran.data;
+package com.alkhalildevelopers.apps.quranepak.data;
 
 import android.os.Build;
 
-import com.quran.labs.androidquran.database.DatabaseHandler;
-import com.quran.labs.androidquran.ui.util.TypefaceManager;
+import com.alkhalildevelopers.apps.quranepak.database.DatabaseHandler;
+import com.alkhalildevelopers.apps.quranepak.ui.util.TypefaceManager;
 
 public class QuranFileConstants {
   // server urls
@@ -11,7 +11,7 @@ public class QuranFileConstants {
 
   // arabic database
   public static final String ARABIC_DATABASE =
-      Build.VERSION.SDK_INT >= 21 ? "quran.ar.uthmani.v2.db" : "quran.ar.uthmani_simple.db";
+      Build.VERSION.SDK_INT >= 21 ? "alkhalildevelopers.ar.uthmani.v2.db" : "alkhalildevelopers.ar.uthmani_simple.db";
 
   public static final String ARABIC_SHARE_TABLE =
       Build.VERSION.SDK_INT >= 21 ?

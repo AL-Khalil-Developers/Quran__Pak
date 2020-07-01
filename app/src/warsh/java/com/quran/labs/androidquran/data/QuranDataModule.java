@@ -1,8 +1,8 @@
-package com.quran.labs.androidquran.data;
+package com.alkhalildevelopers.apps.quranepak.data;
 
-import com.quran.data.source.PageProvider;
+import com.alkhalildevelopers.data.source.PageProvider;
 
-import com.quran.data.source.QuranDataSource;
+import com.alkhalildevelopers.data.source.QuranDataSource;
 import java.util.Map;
 
 import dagger.Module;

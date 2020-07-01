@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.quran.labs.androidquran"
+          package="com.alkhalildevelopers.apps.quranepak"
           android:installLocation="auto">
 
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -18,21 +18,21 @@
   <uses-sdk tools:overrideLibrary="timber.log"/>
 
   <application
-      android:icon="@drawable/icon"
-      android:roundIcon="@drawable/icon"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
       android:label="@string/app_name"
-      android:name=".QuranApplication"
+      android:name="com.alkhalildevelopers.apps.quranepak.QuranApplication"
       android:allowBackup="true"
       android:fullBackupContent="@xml/backup"
       android:networkSecurityConfig="@xml/network_security_config"
       android:supportsRtl="true"
       android:theme="@style/Quran">
     <activity
-        android:name=".ui.SheikhAudioManagerActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.ui.SheikhAudioManagerActivity"
         android:theme="@style/Quran"
         ></activity>
     <activity
-        android:name=".QuranDataActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.QuranDataActivity"
         android:label="@string/app_name"
         android:configChanges="keyboardHidden|orientation|screenSize"
         android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -44,33 +44,33 @@
                  android:resource="@xml/shortcuts" />
     </activity>
 
-    <activity android:name=".ShortcutsActivity"
+    <activity android:name="com.alkhalildevelopers.apps.quranepak.ShortcutsActivity"
               android:exported="true" />
     <activity
-        android:name=".ui.QuranActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.ui.QuranActivity"
         android:theme="@style/QuranToolBar"/>
     <activity
-        android:name=".AboutUsActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.AboutUsActivity"
         android:theme="@style/QuranToolBar"/>
-    <activity android:name=".HelpActivity"/>
+    <activity android:name="com.alkhalildevelopers.apps.quranepak.HelpActivity"/>
     <activity
-        android:name=".ui.PagerActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.ui.PagerActivity"
         android:launchMode="singleTop"
         android:theme="@style/QuranToolBar.Overlay"/>
     <activity
-        android:name=".ui.TranslationManagerActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.ui.TranslationManagerActivity"
         android:configChanges="keyboardHidden|orientation|screenSize"/>
     <activity
-        android:name=".QuranPreferenceActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.QuranPreferenceActivity"
         android:theme="@style/QuranToolBar"
         android:configChanges="keyboardHidden|orientation|screenSize"/>
     <activity
-        android:name=".QuranAdvancedPreferenceActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.QuranAdvancedPreferenceActivity"
         android:theme="@style/QuranToolBar"
         android:configChanges="keyboardHidden|orientation|screenSize"/>
 
     <activity
-        android:name=".SearchActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.SearchActivity"
         android:launchMode="singleTop">
       <intent-filter>
         <action android:name="android.intent.action.SEARCH"/>
@@ -79,7 +79,7 @@
           android:name="android.app.searchable"
           android:resource="@xml/searchable"/>
     </activity>
-    <activity android:name=".QuranForwarderActivity">
+    <activity android:name="com.alkhalildevelopers.apps.quranepak.QuranForwarderActivity">
       <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
@@ -87,7 +87,7 @@
       </intent-filter>
     </activity>
     <activity
-        android:name=".ui.AudioManagerActivity"
+        android:name="com.alkhalildevelopers.apps.quranepak.ui.AudioManagerActivity"
         android:theme="@style/Quran"/>
 
     <!-- declare the default searchable Activity for the whole app -->
@@ -96,7 +96,7 @@
         android:value=".SearchActivity"/>
     <!-- provides search suggestions for verses. -->
     <provider
-        android:name=".data.QuranDataProvider"
+        android:name="com.alkhalildevelopers.apps.quranepak.data.QuranDataProvider"
         android:exported="false"
         android:authorities="@string/authority"/>
 
@@ -116,7 +116,7 @@
       </intent-filter>
     </receiver>
 
-    <activity android:name=".QuranImportActivity">
+    <activity android:name="com.alkhalildevelopers.apps.quranepak.QuranImportActivity">
       <intent-filter>
         <action android:name="android.intent.action.SEND"/>
         <category android:name="android.intent.category.DEFAULT"/>
@@ -150,15 +150,15 @@
             android:host="*"/>
       </intent-filter>
     </activity>
-    <activity android:name=".pageselect.PageSelectActivity"
+    <activity android:name="com.alkhalildevelopers.apps.quranepak.pageselect.PageSelectActivity"
         android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
     <service
         android:enabled="true"
-        android:name=".service.QuranDownloadService"/>
+        android:name="com.alkhalildevelopers.apps.quranepak.service.QuranDownloadService"/>
     <service
         android:exported="false"
-        android:name=".service.AudioService">
+        android:name="com.alkhalildevelopers.apps.quranepak.service.AudioService">
       <intent-filter>
         <action android:name="android.intent.action.MEDIA_BUTTON"/>
       </intent-filter>

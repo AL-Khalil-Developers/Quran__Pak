@@ -7,9 +7,9 @@
       android:shortcutShortLabel="@string/menu_jump_last_page"
       android:shortcutLongLabel="@string/menu_jump_last_page">
     <intent
-        android:action="com.quran.labs.androidquran.last_page"
-        android:targetPackage="com.quran.labs.androidquran.warsh"
-        android:targetClass="com.quran.labs.androidquran.ShortcutsActivity"
+        android:action="com.alkhalildevelopers.apps.quranepak.last_page"
+        android:targetPackage="com.alkhalildevelopers.apps.quranepak.warsh"
+        android:targetClass="com.alkhalildevelopers.apps.quranepak.ShortcutsActivity"
         />
   </shortcut>
 </shortcuts>
