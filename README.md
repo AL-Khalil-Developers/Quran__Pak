@@ -3,7 +3,7 @@
 [<img align="right" alt="Get it on Google Play" height="128" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=com.quran.labs.androidquran)
 
 This is a simple (Madani based) Quran app for Android.
-
+e
 * madani images from [quran images project](https://github.com/quran/quran.com-images) on github.
 * qaloon images used with permission of Nous Memes Editions Et Diffusion (Tunisia).
 * naskh images used with permission of SHL Info Systems.
