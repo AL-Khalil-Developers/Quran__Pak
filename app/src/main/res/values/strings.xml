@@ -7,6 +7,11 @@
 
 
 
+  <string name="AdmobAppID" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+  <string name="AdmobBannerAdUnit" translatable="false"></string>
+  <string name="AdmobInterstitialAdUnit" translatable="false"></string>
+
+
 
   <string name="downloadPrompt_title">Download Required Files?</string>
   <string name="downloadPrompt">In order for Quran E Pak Android to work properly,

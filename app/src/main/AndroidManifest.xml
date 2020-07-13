@@ -25,6 +25,12 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/Quran">
+
+    <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+    <meta-data
+        android:name="com.google.android.gms.ads.APPLICATION_ID"
+        android:value="@string/AdmobAppID"/>
+
     <activity android:name="com.alkhalildevelopers.quranepak.personal.ChannelPageActivity"></activity>
     <activity android:name="com.alkhalildevelopers.quranepak.personal.WebsitePageActivity" />
     <activity
