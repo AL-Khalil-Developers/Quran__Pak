@@ -153,11 +153,11 @@ class QuranActivity : QuranActionBarActivity(),
     updateTranslationsListAsNeeded()
 
     if (AdmobBannerADUnit.isNotEmpty()) {
+      val bannerAdContainer: LinearLayout = findViewById(R.id.bannerAdContainer)
+
       val adView = AdView(this)
       adView.adSize = AdSize.BANNER
       adView.adUnitId = resources.getString(R.string.AdmobBannerAdUnit)
-
-      val bannerAdContainer: LinearLayout = findViewById(R.id.bannerAdContainer)
       val adRequest = AdRequest.Builder().build();
       adView.loadAd(adRequest)
       bannerAdContainer.addView(adView)
