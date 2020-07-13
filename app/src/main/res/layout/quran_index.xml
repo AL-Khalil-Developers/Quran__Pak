@@ -5,23 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-        android:background="?attr/colorPrimary"
-        style="@style/ToolBarArea"/>
-    <com.alkhalildevelopers.apps.quranepak.widgets.SlidingTabLayout
-        android:id="@+id/indicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        style="@style/ToolBarArea"
-        />
-    <com.alkhalildevelopers.apps.quranepak.widgets.QuranViewPager
-        android:id="@+id/index_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+      app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+      android:background="?attr/colorPrimary"
+      style="@style/ToolBarArea"/>
+  <com.alkhalildevelopers.apps.quranepak.widgets.SlidingTabLayout
+      android:id="@+id/indicator"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="?attr/colorPrimary"
+      style="@style/ToolBarArea"
+      />
+  <LinearLayout
+      android:orientation="vertical"
+      android:gravity="center"
+      android:id="@+id/bannerAdContainer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+  <com.alkhalildevelopers.apps.quranepak.widgets.QuranViewPager
+      android:id="@+id/index_pager"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
 </LinearLayout>

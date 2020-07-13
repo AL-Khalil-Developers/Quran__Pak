@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AlertDialog.Builder
 import androidx.appcompat.view.ActionMode
@@ -48,6 +49,7 @@ import com.alkhalildevelopers.apps.quranepak.util.QuranUtils
 import com.alkhalildevelopers.apps.quranepak.widgets.SlidingTabLayout
 import com.alkhalildevelopers.quranepak.personal.ChannelPageActivity
 import com.alkhalildevelopers.quranepak.personal.WebsitePageActivity
+import com.google.android.gms.ads.*
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -83,6 +85,9 @@ class QuranActivity : QuranActionBarActivity(),
   private val compositeDisposable = CompositeDisposable()
   lateinit var latestPageObservable: Observable<Int>
 
+  lateinit var adView: AdView
+  private lateinit var mInterstitialAd: InterstitialAd
+
   @Inject
   lateinit var settings: QuranSettings
   @Inject
@@ -101,6 +106,13 @@ class QuranActivity : QuranActionBarActivity(),
 
     setContentView(R.layout.quran_index)
     isRtl = isRtl()
+
+    //Admob Ads SDK
+    val AdmobBannerADUnit = resources.getString(R.string.AdmobBannerAdUnit)
+    val AdmobInterstitialAdUnit = resources.getString(R.string.AdmobInterstitialAdUnit)
+
+    MobileAds.initialize(this) {}
+
 
     val tb = findViewById<Toolbar>(R.id.toolbar)
     setSupportActionBar(tb)
@@ -139,6 +151,32 @@ class QuranActivity : QuranActionBarActivity(),
       }
     }
     updateTranslationsListAsNeeded()
+
+    if (AdmobBannerADUnit.isNotEmpty()) {
+      val adView = AdView(this)
+      adView.adSize = AdSize.BANNER
+      adView.adUnitId = resources.getString(R.string.AdmobBannerAdUnit)
+
+      val bannerAdContainer: LinearLayout = findViewById(R.id.bannerAdContainer)
+      val adRequest = AdRequest.Builder().build();
+      adView.loadAd(adRequest)
+      bannerAdContainer.addView(adView)
+    }
+    if (AdmobInterstitialAdUnit.isNotEmpty()) {
+      mInterstitialAd = InterstitialAd(this)
+      mInterstitialAd.adUnitId = resources.getString(R.string.AdmobInterstitialAdUnit)
+      mInterstitialAd.loadAd(AdRequest.Builder().build())
+
+      mInterstitialAd.adListener = object : AdListener(){
+        override fun onAdClosed() {
+          mInterstitialAd.loadAd(AdRequest.Builder().build())
+          super.onAdClosed()
+        }
+      }
+
+    }
+
+
   }
 
   public override fun onResume() {
@@ -201,16 +239,46 @@ class QuranActivity : QuranActionBarActivity(),
         startActivity(Intent(this, HelpActivity::class.java))
       }
       R.id.about -> {
-        startActivity(Intent(this, AboutUsActivity::class.java))
+        if(resources.getString(R.string.AdmobInterstitialAdUnit).isNotEmpty()){
+          if (mInterstitialAd.isLoaded) {
+            mInterstitialAd.show()
+            startActivity(Intent(this, AboutUsActivity::class.java))
+          } else {
+            startActivity(Intent(this, AboutUsActivity::class.java))
+
+          }
+        }else{
+          startActivity(Intent(this, AboutUsActivity::class.java))
+
+        }
       }
       R.id.jump -> {
         gotoPageDialog()
       }
       R.id.website -> {
-        startActivity(Intent(this,WebsitePageActivity::class.java))
+        if (resources.getString(R.string.AdmobInterstitialAdUnit).isNotEmpty()) {
+          if (mInterstitialAd.isLoaded) {
+            mInterstitialAd.show()
+            startActivity(Intent(this, WebsitePageActivity::class.java))
+          } else {
+            startActivity(Intent(this, WebsitePageActivity::class.java))
+          }
+        }else{
+          startActivity(Intent(this, WebsitePageActivity::class.java))
+        }
       }
       R.id.channel -> {
-        startActivity(Intent(this,ChannelPageActivity::class.java))
+        if(resources.getString(R.string.AdmobInterstitialAdUnit).isNotEmpty()) {
+          if (mInterstitialAd.isLoaded) {
+            mInterstitialAd.show()
+            startActivity(Intent(this, ChannelPageActivity::class.java))
+          } else {
+            startActivity(Intent(this, ChannelPageActivity::class.java))
+          }
+        }else{
+          startActivity(Intent(this, ChannelPageActivity::class.java))
+
+        }
       }
       R.id.other_apps -> {
         Answers.getInstance().logCustom(CustomEvent("menuOtherApps"))
