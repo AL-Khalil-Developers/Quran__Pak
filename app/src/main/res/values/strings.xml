@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">Quran E Pak</string>
-  <string name="playConsoleName" translatable="false">Google LLC</string>
-  <string name="websiteUrl" translatable="false">https://www.alkhalildevelopers.com</string>
-  <string name="channelUrl" translatable="false">https://www.youtube.com/alkhalildevelopers</string>
+  <string name="playConsoleName" translatable="false">Naz Akhrar 4794</string>
+  <string name="websiteUrl" translatable="false">https://nazakhtar4794.blogspot.com/</string>
+  <string name="channelUrl" translatable="false">https://www.youtube.com/channel/UCTPn6NCdvLFiV2FD66ICCMA/videos</string>
 
 
 
   <string name="AdmobAppID" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-  <string name="AdmobBannerAdUnit" translatable="false"></string>
-  <string name="AdmobInterstitialAdUnit" translatable="false"></string>
+  <string name="AdmobBannerAdUnit" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+  <string name="AdmobInterstitialAdUnit" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
 
 
 

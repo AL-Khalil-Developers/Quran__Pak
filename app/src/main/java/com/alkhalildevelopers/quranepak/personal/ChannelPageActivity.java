@@ -8,25 +8,51 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 
 import com.alkhalildevelopers.apps.quranepak.R;
 import com.alkhalildevelopers.apps.quranepak.ui.QuranActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class ChannelPageActivity extends AppCompatActivity {
   SwipeRefreshLayout swipeRefreshLayout;
   WebView webView;
+  ViewGroup bannerADContainer;
+  AdView adView;
   @SuppressLint("SetJavaScriptEnabled")
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_channel_page);
+    MobileAds.initialize(this);
 
+    String AdmobBannerAdUnit = getResources().getString(R.string.AdmobBannerAdUnit);
+
+    if (!AdmobBannerAdUnit.isEmpty()){
+      adView = new AdView(ChannelPageActivity.this);
+      adView.setAdSize(AdSize.BANNER);
+      adView.setAdUnitId(AdmobBannerAdUnit);
+      Handler handler = new Handler();
+      handler.postDelayed(new Runnable() {
+        @Override
+        public void run() {
+          bannerADContainer = (LinearLayout) findViewById(R.id.bannerAdContainer);
+          bannerADContainer.addView(adView);
+          adView.loadAd(new AdRequest.Builder().build());
+        }
+      },5000);
+    }
     swipeRefreshLayout = findViewById(R.id.channelSwipeableLayout);
     webView = findViewById(R.id.channelWebView);
     webView.getSettings().setJavaScriptEnabled(true);
